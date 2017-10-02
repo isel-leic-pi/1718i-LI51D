@@ -1,0 +1,33 @@
+{
+  "name": "aula-2017-10-02",
+  "version": "1.0.0",
+  "description": "First node application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"tests must be done\"",
+    "prestart": "echo prestart",
+    "start": "node index.js",
+    "poststart": "echo poststart",
+    "postxpto": "echo postxpto",
+    "xpto": "echo xpto",
+    "prexpto": "echo prexpto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isel-leic-pi/1718i-LI51D.git"
+  },
+  "keywords": [
+    "node.js",
+    "learning",
+    "hello-world"
+  ],
+  "author": "Luis Falcao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isel-leic-pi/1718i-LI51D/issues"
+  },
+  "homepage": "https://github.com/isel-leic-pi/1718i-LI51D#readme",
+  "dependencies": {
+    "sync-request": "^4.1.0"
+  }
+}
