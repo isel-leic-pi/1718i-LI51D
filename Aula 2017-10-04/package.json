@@ -1,0 +1,15 @@
+{
+  "name": "aula-2017-10-04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.83.0",
+    "sync-request": "^4.1.0"
+  }
+}
