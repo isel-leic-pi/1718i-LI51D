@@ -36,3 +36,4 @@ bower_components
 
 **/.gradle/
 **/gradle/
+.vscode/
