@@ -18,14 +18,7 @@ function showLeagues(req, rsp) {
         dataAccess.getLeagues(processLeagues)
 
         function processLeagues(err, leagues) {
-            view("leagues", leagues, processViewContent)
-
-            function processViewContent(err, viewStr) {
-                if(err) {
-                    throw err;
-                }
-                rsp.end(viewStr)
-            }    
+            rsp.end(view("leagues", leagues))
         }
     }
     
