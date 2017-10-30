@@ -1,0 +1,16 @@
+<html>
+
+<head>
+    <title>Leagues</title>
+</head>
+
+<body>
+    <h1>Soccer Leagues</h1>
+    <ul>
+        
+        {{#each this}}
+            <li><a href="/league/{{id}}">{{name}} ({{acronym}})</a></li>
+        {{/each}}
+    </ul>
+</body>
+</html>
