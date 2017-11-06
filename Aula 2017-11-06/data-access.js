@@ -16,10 +16,10 @@ const memoise = require("./utils/memoise")(false)
 const requestOrig = require("request")
 
 // Uncoment this line to use memoisation
-//const request = memoise(requestOrig)
+const request = memoise(requestOrig)
 
 // Uncoment this line to not use memoisation
-const request = requestOrig
+//const request = requestOrig
 
 
 
@@ -29,9 +29,9 @@ const BASE_URL = "http://api.football-data.org/v1/"
 function getLeagues(cb) {
     let url = BASE_URL + "soccerseasons/";
 
-    request(url, (err, rsp, body) =>  {
+    request(url, (err, rsp) =>  {
         if(err) 
             return cb(err)
-        cb(null, JSON.parse(body).map(l => new LeagueDto(l.id, l.caption, l.league)))
+        cb(null, JSON.parse(rsp.body).map(l => new LeagueDto(l.id, l.caption, l.league)))
     })
 }
