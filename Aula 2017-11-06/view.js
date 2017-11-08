@@ -3,8 +3,6 @@ const fs = require("fs")
 const handlebars = require("handlebars")
 
 
-
-
 var views = {
 }
 
@@ -17,7 +15,6 @@ module.exports = function (viewName, context) {
         data = data.toString();
         const template = handlebars.compile(data)
         views[viewName] = template;
-        
     }
     return views[viewName](context);
 }

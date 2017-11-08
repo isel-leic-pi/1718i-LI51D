@@ -15,6 +15,7 @@ function showLeagues(req, rsp) {
         // Parse the response to JavaScript objects
         // Generate HTML with the objects representing the response
 
+        debug("showLeagues")
         dataAccess.getLeagues(processLeagues)
 
         function processLeagues(err, leagues) {
