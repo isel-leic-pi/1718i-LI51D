@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Leagues</title>
+
+    <style>
+        body {
+            border: 4px solid black;
+            font-size: 20px
+        }
+        li.odd {
+            background-color: blanchedalmond;
+        }
+
+        li.even {
+            background-color:cornsilk;
+        }
+    </style>        
+</head>
+
+
+
+<body>
+    <h1>Soccer Leagues</h1>
+
+    <ul>     
+        {{#each this}}
+            <li class="{{this.cls}}"><a href="/league/{{id}}">{{name}} ({{acronym}})</a></li>
+        {{/each}}
+    </ul>
+</body>
+</html>
