@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Leagues</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="row col-12">
+            <h1>Soccer Leagues</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                Left area
+            </div>
+            <div class="col-10">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Acronym</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this}}
+                        <tr>
+                            <td>
+                                <a href="/leagues/{{id}}">{{name}}</a>
+                            </td>
+                            <td>{{acronym}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
