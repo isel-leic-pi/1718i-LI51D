@@ -20,10 +20,10 @@ app.set('view engine', 'hbs')
 
 
 
-app.use(requestTimeMiddleware, logMiddleware, authorizationMiddleware)
+app.use(requestTimeMiddleware, logMiddleware)
 
 
-app.get('/leagues', (req, rsp, next) => {
+app.get('/', (req, rsp, next) => {
     debug("SLB")
     next();
     }, controller.showLeagues)
