@@ -11,6 +11,7 @@ var mystatic = require('./serve-static');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var leagues = require('./routes/leagues-controller');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use(mystatic(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/leagues/', leagues);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
