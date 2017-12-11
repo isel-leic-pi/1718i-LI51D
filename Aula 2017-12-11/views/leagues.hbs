@@ -1,10 +1,10 @@
-<form action="/leagues" method="GET">
+
 
 <div>Search League: 
     <input type="search" name="search"/></div>
-    <div>Case sensitive: <input type="checkbox" name="cs" value="case-sensitive"/></div>
-    <input type="submit" value="Search"/>
-</form>
+    <div>Case sensitive: <input type="checkbox" name="cs" value="case-sensitive" id="search-text"/></div>
+    <input type="button" value="Search" id="search-btn"/>
+</div>
 <div class="container">
     <div class="row col-12">
         <h1>Soccer Leagues</h1>
@@ -38,6 +38,9 @@
         </div>
     </div>
 </div>
+
+<script src="javascripts/leagues-search.js">
+</script>
 
 <script src="javascripts/leagues-sort.js">
 </script>

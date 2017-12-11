@@ -7,6 +7,7 @@ module.exports = router;
 
 router.get('/', showLeagues)
 router.get('/search', showSearch)
+router.get('/search-partial', showLeaguesPartial)
 router.get('/:id', showLeague)
 
 
@@ -16,6 +17,10 @@ const debug = require("debug")("soccer-app:controller")
 
 function showSearch(req, rsp) {
     rsp.render('search-leagues', {username: req.user.username})
+}
+
+
+function showLeaguesPartial(req, rsp) {
 }
 
 function showLeagues(req, rsp) {
