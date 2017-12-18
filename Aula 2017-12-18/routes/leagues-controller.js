@@ -14,14 +14,26 @@ module.exports = function (leaguesService) {
     return router;
 
     function showLeaguesPartial(req, rsp) {
-        getLeagues(leaguesService, req.query.search, leagues => rsp.render("partials/leagues-partial", { leagues: leagues, layout: null }))
+        getLeagues(leaguesService, req.query.search, returnReponse)
+
+        function returnReponse(leagues){
+            let format = req.get('Accept')
+            switch(format) { 
+                case "text/html": 
+                  rsp.render("partials/leagues-partial", { leagues: leagues, layout: null })
+                  break;
+                case "application/json":
+                    rsp.json(leagues)
+                    break;
+                default:
+                    rsp.status(400).send("Unsuported Format")
+            }
+        }
     }
 
     function showLeagues(req, rsp) {
         getLeagues(leaguesService, req.query.search, leagues => rsp.render("leagues", { leagues: leagues }))
     }
-
-
 
     function showLeague(req, rsp) {
         console.log(req.params.id)

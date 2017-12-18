@@ -19,16 +19,23 @@
         let toSearch = searchText.value;
 
         const xhr = new XMLHttpRequest();
+        
         let uri = `/leagues/search-partial?search=${toSearch}`
         xhr.open("GET", uri)
+        xhr.setRequestHeader("Accept", "text/html")
         
         xhr.onreadystatechange = processResponse;
         xhr.send();
         
         function processResponse() {
-            if(xhr.readyState == 4 && xhr.status == 200) {
-                tbody.innerHTML = xhr.responseText
-                history.pushState(getState(), "", `${document.location.pathname}?search=${toSearch}`)       
+            
+            if(xhr.readyState == 4) {
+                if(xhr.status == 200) {
+                    tbody.innerHTML = xhr.responseText
+                    history.pushState(getState(), "", `${document.location.pathname}?search=${toSearch}`)       
+                } else {
+                    console.log(xhr.status);
+                }
             }
         }
     }
