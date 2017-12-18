@@ -1,0 +1,38 @@
+
+<div>Search League: 
+    <input type="search" name="search" id="search-text"/></div>
+    <div>Case sensitive: <input type="checkbox" name="cs" value="case-sensitive"/></div>
+    <input type="button" value="Search" id="search-btn"/>
+</div>
+<div class="container">
+    <div class="row col-12">
+        <h1>Soccer Leagues</h1>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            Left area
+        </div>
+        <div class="col-10">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" id="name">
+                            <img id="img-sort-name" src=""/>
+                            Name
+                        </th>
+                        <th scope="col" id="acronym">Acronym</th>
+                    </tr>
+                </thead>
+                <tbody id="league-rows">
+                    {{>leagues_partial}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="javascripts/leagues-search.js">
+</script>
+
+<script src="javascripts/leagues-sort.js">
+</script>
