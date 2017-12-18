@@ -16,18 +16,14 @@ module.exports = function (leaguesService) {
     function showLeaguesPartial(req, rsp) {
         getLeagues(leaguesService, req.query.search, returnReponse)
 
+
         function returnReponse(leagues){
             let format = req.get('Accept')
-            switch(format) { 
-                case "text/html": 
-                  rsp.render("partials/leagues-partial", { leagues: leagues, layout: null })
-                  break;
-                case "application/json":
-                    rsp.json(leagues)
-                    break;
-                default:
-                    rsp.status(400).send("Unsuported Format")
+            const formatsSupported = {
+                "text/html": leagues => rsp.render("partials/leagues-partial", { leagues: leagues, layout: null }),
+                "application/json": leagues => rsp.json(leagues)
             }
+            formatsSupported[format] ? formatsSupported[format](leagues) : rsp.status(400).send("Unsupported Format.")
         }
     }
 

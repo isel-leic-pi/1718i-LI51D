@@ -22,7 +22,7 @@
         
         let uri = `/leagues/search-partial?search=${toSearch}`
         xhr.open("GET", uri)
-        xhr.setRequestHeader("Accept", "text/html")
+        xhr.setRequestHeader("Accept", "application/json")
         
         xhr.onreadystatechange = processResponse;
         xhr.send();
@@ -31,7 +31,7 @@
             
             if(xhr.readyState == 4) {
                 if(xhr.status == 200) {
-                    tbody.innerHTML = xhr.responseText
+                    tbody.innerHTML = getHtml(xhr.responseText)
                     history.pushState(getState(), "", `${document.location.pathname}?search=${toSearch}`)       
                 } else {
                     console.log(xhr.status);
@@ -40,6 +40,22 @@
         }
     }
 
+    function getHtml(text) {
+        let leaguesObj = JSON.parse(text)
+        let html =  leaguesObj.map(getRow).join('\n')
+        console.log(html)
+        return html;
+
+        function getRow(league) {
+            return `
+            <tr>
+                <td>
+                <a href="/leagues/${league.id}">${league.name}</a>
+                 </td>
+                <td>${league.acronym}</td>
+            </tr>`
+        }
+    } 
     function getState(push) {
         let toSearch = searchText.value
         let state = {search: toSearch, html: tbody.innerHTML}
